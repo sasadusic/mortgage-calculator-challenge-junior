@@ -1,0 +1,340 @@
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+  /*
+    2. Remove default margin
+  */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: .3s;
+    font-family: "Plus Jakarta Sans", sans-serif;
+  }
+  /*
+    Typographic tweaks!
+    3. Add accessible line-height
+    4. Improve text rendering
+  */
+  body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  /*
+    5. Improve media defaults
+  */
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+  }
+  /*
+    6. Remove built-in form typography styles
+  */
+  input, button, textarea, select {
+    font: inherit;
+  }
+  /*
+    7. Avoid text overflows
+  */
+  p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+  }
+  /*
+    8. Create a root stacking context
+  */
+  #root, #__next {
+    isolation: isolate;
+  }
+:root{
+    
+  /* Primary */
+  --Lime: hsl(61, 70%, 52%);
+  --Lime-2: hsla(61, 70%, 52%, .2);
+  --Red: hsl(4, 69%, 50%);
+
+  /* Neutral */
+  --White: hsl(0, 0%, 100%);
+  --Slate-100: hsl(202, 86%, 94%);
+  --Slate-300: hsl(203, 41%, 72%);
+  --Slate-500: hsl(200, 26%, 54%);
+  --Slate-700: hsl(200, 24%, 40%);
+  --Slate-900: hsl(202, 55%, 16%);
+  --Slate-1000: hsl(202, 55%, 10%);
+}
+.attribution { 
+  font-size: 14px; 
+  text-align: center;
+  background: #4e4e4e;
+  color: #fff;
+  padding: 24px;
+}
+.attribution a { 
+  color: hsl(228, 45%, 60%); 
+}
+p{
+    font-size: 16px;
+    font-weight: 500;
+}
+.phar{
+  font-size: 16px;
+  color: var(--Slate-500);
+}
+.flex{
+  display: flex;
+}
+.flex-r{
+  display: flex;
+}
+.align{
+  align-items: center;
+}
+.between{
+  justify-content: space-between;
+}
+.gap-12{
+  gap: 12px;
+}
+.mb-32{
+  margin-bottom: 24px;
+}
+.main{
+  min-height: calc(100vh - 69px);
+  display: grid;
+  place-items: center;
+  /* background: var(--Slate-300); */
+  background: var(--Slate-100);
+}
+.card{
+  display: flex;
+  flex: 1;
+  border-radius: 18px;
+  overflow: hidden;
+  width: min(900px, 100vw);
+}
+.left{
+  flex: 1;
+  padding: 40px;
+  background: var(--White);
+  color: var(--Slate-900);
+}
+.right{
+  flex: 1;
+  background: var(--Slate-900);
+  padding: 40px;
+  color: var(--Slate-100);
+  border-bottom-left-radius: 60px;
+}
+.header{
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--Slate-900);
+}
+.btn{
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 16px;
+  cursor: pointer;
+}
+.clear-btn{
+  color: var(--Slate-700);
+  text-decoration: underline;
+}
+.label{
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--Slate-700);
+  display: block;
+  margin-bottom: 8px;
+}
+.input{
+  border: none;
+  outline: none;
+  border: 1px solid var(--Slate-700);
+  border-radius: 4px;
+  font-size: 16px;
+  padding: 9px 16px;
+  width: 100%;
+  cursor: pointer;
+  font-weight: 700;
+}
+.input-error{
+  border: 1px solid var(--Red);
+}
+.input-error + .span{
+  background: var(--Red);
+  color: white;
+}
+.input:focus{
+  border: 1px solid var(--Lime);
+}
+.input:focus + .span{
+  background: var(--Lime-2);
+}
+.pl{
+  padding-left: 48px;
+}
+.input-cont{
+  margin-bottom: 18px;
+  position: relative;
+}
+.input-c{
+  position: relative;
+}
+.submit-btn{
+  font-weight: 700;
+  color: var(--Slate-900);
+  padding: 12px 32px;
+  background: var(--Lime);
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 32px;
+}
+.radio-cont{
+  border: 1px solid var(--Slate-700);
+  border-radius: 4px;
+  padding: 12px;
+  padding-left: 16px;
+  margin-bottom: 6px;
+  cursor: pointer;
+}
+.radio-cont:hover{
+  border: 1px solid var(--Lime);
+}
+.radio{
+  width: 16px;
+  height: 16px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border-radius: 50%;
+  border: 2px solid var(--Slate-500);
+  outline: none;
+  cursor: pointer;
+  position: relative;
+}
+.active-radio-cont{
+  background: var(--Lime-2);
+  border: 1px solid var(--Lime);
+}
+.radio:checked{
+  border-color: var(--Lime); /* Change color to desired value */
+  background-color: transparent; /* Change color to desired value */
+}
+.radio:checked::before {
+  content: '';
+  display: block;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background-color: var(--Lime);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.span{
+  position: absolute;
+    bottom: 1px;
+    background: var(--Slate-100);
+    padding: 8.5px 12px;
+    font-weight: 700;
+  }
+  .r{
+    border-bottom-right-radius: 4px;
+    border-top-right-radius: 4px;
+    right: 1px;
+    
+  }
+  .l{
+    left: 1px;
+    border-bottom-left-radius: 4px;
+    border-top-left-radius: 4px;
+}
+.error{
+  color: var(--Red);
+  margin-top: 6px;
+  display: none;
+}
+.right-empty{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 12px;
+  /* display: none; */
+  /* display: block; */
+}
+.right-completed{
+  display: none;
+}
+.sub-header{
+  font-size: 24px;
+}
+.right-completed .sub-header{
+  margin-bottom: 18px;
+}
+.right-card{
+  background: var(--Slate-1000);
+  padding: 32px;
+  border-radius: 6px;
+  border-top: 4px solid var(--Lime);
+  margin-top: 32px;
+}
+.monthly{
+  font-size: 40px;
+  color: var(--Lime);
+  font-weight: 700;
+}
+.total{
+  font-size: 24px;
+  color: var(--White);
+  font-weight: 700;
+}
+.hr{
+  width: 100%;
+  height: 1px;
+  background: var(--Slate-500);
+  margin: 22px 0 18px 0;
+}
+/* Za WebKit pretraživače (Chrome, Safari, Edge) */
+input[type="number"]::-webkit-inner-spin-button, 
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Za Firefox */
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+/* Extra large devices (large desktops, 1200px and up) */
+@media (width < 1200px)  {}
+
+/* Large devices (desktops, 992px and up) */
+@media (width < 992px) {
+  .card{
+    flex-direction: column;
+    border-radius: 0;
+  }
+  .flex-r{
+    flex-direction: column;
+  }
+  .right{
+    border-radius: 0;
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (width < 768px) {}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (width < 576px) {}
